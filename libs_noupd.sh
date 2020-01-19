@@ -64,6 +64,9 @@ echo ""
 cd /tmp
 sudo rm -rf libmicrohttpd2
 git clone https://github.com/metahashorg/libmicrohttpd2
+wget https://raw.githubusercontent.com/xrenoder/mhsetup/master/daemon.c -O /tmp/libmicrohttpd2/src/microhttpd/daemon.c
+wget https://raw.githubusercontent.com/xrenoder/mhsetup/master/connection.c -O /tmp/libmicrohttpd2/src/microhttpd/connection.c
+wget https://raw.githubusercontent.com/xrenoder/mhsetup/master/internal.h -O /tmp/libmicrohttpd2/src/microhttpd/internal.h
 cd libmicrohttpd2
 ./bootstrap
 ./configure
@@ -76,6 +79,8 @@ echo ""
 cd /tmp
 sudo rm -rf libmhsupport
 git clone https://github.com/metahashorg/libmhsupport
+wget https://raw.githubusercontent.com/xrenoder/mhsetup/master/MHD.h -O /tmp/libmhsupport/libs/mhd/MHD.h
+wget https://raw.githubusercontent.com/xrenoder/mhsetup/master/MHD.cpp -O /tmp/libmhsupport/libs/mhd/MHD.cpp
 cd libmhsupport/build
 ./build.sh
 sudo make install
