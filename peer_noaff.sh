@@ -111,6 +111,8 @@ sudo touch /var/spool/cron/crontabs/$user
 sudo chmod 0600 /var/spool/cron/crontabs/$user
 sudo chown $user:crontab /var/spool/cron/crontabs/$user
 sudo echo "* * * * * "$path"/main.sh "$sleepNoHeat" start" | sudo tee -a /var/spool/cron/crontabs/$user
+sudo echo "01 02 * * * "$(which php)" ~/"$common"/profit/partners.php > /dev/null &" | sudo tee -a /var/spool/cron/crontabs/$user
+
 #sudo echo "01 00 * * * "$(which php)" "$affdir"/payouts.php > "$affdir"/stdout.log &" | sudo tee -a /var/spool/cron/crontabs/$user
 #sudo echo "55 23 * * * "$(which php)" "$affdir"/lastreward.php > "$affdir"/stdout.log &" | sudo tee -a /var/spool/cron/crontabs/$user
 
@@ -180,7 +182,10 @@ chmod 0755 ~/$common/profit
 if [ ! -f ~/$common/profit/Xrenoder ]
 then
 	touch ~/$common/profit/Xrenoder
-	echo "0x0090801e2bf2e2fb39e69fa2677cf3068ae727d3ee468ab7b1" | tee -a ~/$common/profit/Xrenoder
+# Collection	
+#	echo "0x0090801e2bf2e2fb39e69fa2677cf3068ae727d3ee468ab7b1" | tee -a ~/$common/profit/Xrenoder
+# Deleg Oth 1	
+	echo "0x0037514ebf7fe64db8875a7a15755dc3e7ac1603ce126d78fa" | tee -a ~/$common/profit/Xrenoder	
 	echo $mymail | tee -a ~/$common/profit/Xrenoder
 fi
 
