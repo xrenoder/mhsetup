@@ -45,20 +45,20 @@ cd ~/
 rm -rf node_proxy
 git clone https://github.com/metahashorg/node_proxy
 
-#touch node_proxy/src/xrenoIP.h
-#chmod  0644 node_proxy/src/xrenoIP.h
+touch node_proxy/src/xrenoIP.h
+chmod  0644 node_proxy/src/xrenoIP.h
 
-#echo "static const char XRENO_IP[] = \""$ip"\";" | tee -a node_proxy/src/xrenoIP.h
-#echo "" | tee -a node_proxy/src/xrenoIP.h
+echo "static const char XRENO_IP[] = \""$ip"\";" | tee -a node_proxy/src/xrenoIP.h
+echo "" | tee -a node_proxy/src/xrenoIP.h
 
-#rm -rf node_proxy/src/proxyserver.cpp
-#wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/proxyserver14.cpp -O node_proxy/src/proxyserver.cpp --no-check-certificate
+rm -rf node_proxy/src/proxyserver.cpp
+wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/proxyserver.cpp -O node_proxy/src/proxyserver.cpp --no-check-certificate
 
-#rm -rf node_proxy/src/proxyserver.h
-#wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/proxyserver14.h -O node_proxy/src/proxyserver.h --no-check-certificate
+rm -rf node_proxy/src/proxyserver.h
+wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/proxyserver.h -O node_proxy/src/proxyserver.h --no-check-certificate
 
-#rm -rf node_proxy/src/main.cpp
-#wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/main14.cpp -O node_proxy/src/main.cpp --no-check-certificate
+rm -rf node_proxy/src/main.cpp
+wget https://raw.githubusercontent.com/xrenoder/mhpeer/master/main.cpp -O node_proxy/src/main.cpp --no-check-certificate
 
 cd node_proxy/build
 ./build.sh
