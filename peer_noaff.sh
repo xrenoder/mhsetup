@@ -79,6 +79,13 @@ then
 	cp $path/main_key ~/$common/main_key
 fi
 
+if [ -f ~/$common/affiliate/config.inc ]
+then
+	rm -rf ~/$common/config.inc
+	cp ~/$common/affiliate/config.inc ~/$common/config.inc
+fi
+
+
 rm -rf $path
 mkdir $path
 chmod 0755 $path
@@ -203,8 +210,14 @@ chmod 0755 ~/$common/affiliate
 mkdir ~/$common/affiliate/classes
 chmod 0755 ~/$common/affiliate/classes
 
+if [ -f ~/$common/config.inc ]
+then
+	cp ~/$common/config.inc ~/$common/affiliate/config.inc
+	rm -rf ~/$common/config.inc
+else
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O ~/$common/affiliate/config.inc --no-check-certificate
+fi
 
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O ~/$common/affiliate/config.inc --no-check-certificate
 wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/checker.inc -O ~/$common/affiliate/checker.inc --no-check-certificate
 wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/loader.inc -O ~/$common/affiliate/loader.inc --no-check-certificate
 
