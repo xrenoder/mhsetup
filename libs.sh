@@ -117,7 +117,7 @@ echo "# define __FD_SETSIZE "$fdsize | tee -a ./main/php.h
 echo "# undef FD_SETSIZE" | tee -a ./main/php.h
 echo "# define FD_SETSIZE "$fdsize | tee -a ./main/php.h
 
-./configure --with-config-file-path=$inipath --enable-fd-setsize=$fdsize --enable-sockets --enable-pcntl --with-curl --with-gmp
+./configure --with-config-file-path=$inipath --enable-fd-setsize=$fdsize  --enable-dba=shared --enable-sockets --enable-pcntl --with-curl --with-gmp
 
 make
 sudo make install
