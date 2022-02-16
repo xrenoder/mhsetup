@@ -171,4 +171,4 @@ php -r "print_r (get_defined_constants (true));" | grep FD_SETSIZE
 
 cd ~/
 
-rm ~/iTorrentLibs.sh
+rm ~/libs.sh
