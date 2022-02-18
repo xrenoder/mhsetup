@@ -16,13 +16,20 @@ sudo apt-get install bzip2 -y
 sudo apt-get install zip unzip -y
 sudo apt-get install libxml2-dev -y
 sudo apt-get install curl -y
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt install php7.4-curl
 sudo apt-get install php7.0-curl -y
 sudo apt-get install libgmp-dev -y
 sudo apt-get install php-gmp -y
 sudo apt-get install php7.0-gmp
 sudo apt-get install libcurl4-gnutls-dev -y
 sudo apt-get install libcurl4-nss-dev -y
-sudo apt-get install libcurl7-openssl-dev -y
+
+cd /usr/local/include
+sudo ln -s /usr/include/x86_64-linux-gnu/curl curl
+sudo apt-get install libcurl4-nss-dev -y
+
 sudo apt-get install composer -y
 sudo apt-get install sendmail -y
 sudo apt-get update && sudo apt-get dist-upgrade -y
@@ -31,7 +38,9 @@ echo "";
 echo "*********************************** GCC INSTALL ********************************************";
 echo "";
 
-sudo apt install -y libgoogle-perftools4 libgmp10 liburiparser1 libcurl4 gcc g++ liburiparser-dev libssl-dev libevent-dev git automake libtool make cmake libcurl4-openssl-dev libcrypto++-dev libgnutls28-dev libgcrypt20-dev libgoogle-perftools-dev g++-8 gcc-8 cpp-8 g++-8 gcc-8 gcc-8-locales g++-8-multilib gcc-8-doc gcc-8-multilib libstdc++-8-doc git curl wget automake libtool texinfo make libgmp-dev libcurl4-openssl-dev libgcrypt11-dev libgnutls28-dev libboost-dev libre2-dev libgoogle-perftools-dev libcurl4 libgoogle-perftools4 liburiparser1
+sudo apt install -y libgoogle-perftools4 libgmp10 liburiparser1 libcurl4 gcc g++ liburiparser-dev libssl-dev libevent-dev git automake libtool make cmake libcurl4-openssl-dev libcrypto++-dev libgnutls28-dev libgcrypt20-dev libgoogle-perftools-dev g++-8 gcc-8 cpp-8 g++-8 gcc-8 gcc-8-locales g++-8-multilib gcc-8-doc gcc-8-multilib libstdc++-8-doc git curl wget automake libtool texinfo make libgmp-dev libcurl4-openssl-dev libgnutls28-dev libboost-dev libre2-dev libgoogle-perftools-dev libcurl4 libgoogle-perftools4 liburiparser1
+
+sudo apt install -y libgcrypt11-dev
 
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 80 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
 
@@ -48,7 +57,7 @@ tar zxfv cmake-3.13.0.tar.gz
 cd cmake-3.13.0
 ./bootstrap
 ./configure
-make -j$(nproc)
+make
 sudo make install 
 
 echo ""
