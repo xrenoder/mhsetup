@@ -134,29 +134,26 @@ then
 fi
 
 
-mkdir $path/affiliate
-chmod 0755 $path/affiliate
-
-mkdir $path/affiliate/classes
-chmod 0755 $path/affiliate/classes
-
-if [ -f $path/config.inc ]
+if [ ! -d $common/mhphplib ]
 then
-	cp $path/config.inc $path/affiliate/config.inc
-	rm -rf $path/config.inc
-else
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O $path/affiliate/config.inc --no-check-certificate
+	mkdir $common/mhphplib
+	chmod 0755 $common/mhphplib
+
+	mkdir $common/mhphplib/classes
+	chmod 0755 $common/mhphplib/classes
+
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O $common/mhphplib/config.inc --no-check-certificate
+
+
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/checker.inc -O $common/mhphplib/checker.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/loader.inc -O $common/mhphplib/loader.inc --no-check-certificate
+
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Base.inc -O $common/mhphplib/classes/Base.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/MetaHash.inc -O $common/mhphplib/classes/MetaHash.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Mail.inc -O $common/mhphplib/classes/Mail.inc --no-check-certificate
 fi
 
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/checker.inc -O $path/affiliate/checker.inc --no-check-certificate
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/loader.inc -O $path/affiliate/loader.inc --no-check-certificate
-
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Base.inc -O $path/affiliate/classes/Base.inc --no-check-certificate
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/MetaHash.inc -O $path/affiliate/classes/MetaHash.inc --no-check-certificate
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Mail.inc -O $path/affiliate/classes/Mail.inc --no-check-certificate
-
 wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/partners.inc -O $path/profit/partners.inc --no-check-certificate
-
 
 rm -rf $path/profit/partners.php
 touch $path/profit/partners.php
