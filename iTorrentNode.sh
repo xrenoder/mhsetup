@@ -134,23 +134,23 @@ then
 fi
 
 
-if [ ! -d $common/mhphplib ]
+if [ ! -d ~/mhphplib ]
 then
-	mkdir $common/mhphplib
-	chmod 0755 $common/mhphplib
+	mkdir ~/mhphplib
+	chmod 0755 ~/mhphplib
 
-	mkdir $common/mhphplib/classes
-	chmod 0755 $common/mhphplib/classes
+	mkdir ~/mhphplib/classes
+	chmod 0755 ~/mhphplib/classes
 
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O $common/mhphplib/config.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/config.inc -O ~/mhphplib/config.inc --no-check-certificate
 
 
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/checker.inc -O $common/mhphplib/checker.inc --no-check-certificate
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/loader.inc -O $common/mhphplib/loader.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/checker.inc -O ~/mhphplib/checker.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/loader.inc -O ~/mhphplib/loader.inc --no-check-certificate
 
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Base.inc -O $common/mhphplib/classes/Base.inc --no-check-certificate
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/MetaHash.inc -O $common/mhphplib/classes/MetaHash.inc --no-check-certificate
-	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Mail.inc -O $common/mhphplib/classes/Mail.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Base.inc -O ~/mhphplib/classes/Base.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/MetaHash.inc -O ~/mhphplib/classes/MetaHash.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Mail.inc -O ~/mhphplib/classes/Mail.inc --no-check-certificate
 fi
 
 wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/partners.inc -O $path/profit/partners.inc --no-check-certificate
@@ -163,7 +163,7 @@ echo "define('NODENAME', '"$nodename"');" | tee -a $path/profit/partners.php
 echo "define('FROM_MAIL', '"$from"');" | tee -a $path/profit/partners.php
 
 echo "define('ROOT_DIR', __DIR__);" | tee -a $path/profit/partners.php
-echo "define('SCRIPT_DIR', ROOT_DIR . '/../affiliate');" | tee -a $path/profit/partners.php
+echo "define('SCRIPT_DIR', ROOT_DIR . '/../../../mhphplib');" | tee -a $path/profit/partners.php
 echo "define('KEY_FILE', ROOT_DIR . '/../"$nodeaddr".raw.prv');" | tee -a $path/profit/partners.php
 
 echo "require_once(SCRIPT_DIR . '/config.inc');" | tee -a $path/profit/partners.php
