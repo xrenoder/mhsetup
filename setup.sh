@@ -1,8 +1,8 @@
 #!/bin/bash
-srv=01
+srv=01_it
 user=metahash
 #use 8M for 8 GIG!!! of swap
-swap=12M
+swap=8M
 files=1048576
 
 dpkg-reconfigure tzdata
