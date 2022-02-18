@@ -151,9 +151,9 @@ then
 	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Base.inc -O ~/mhphplib/classes/Base.inc --no-check-certificate
 	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/MetaHash.inc -O ~/mhphplib/classes/MetaHash.inc --no-check-certificate
 	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/Mail.inc -O ~/mhphplib/classes/Mail.inc --no-check-certificate
-fi
 
-wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/partners.inc -O $path/profit/partners.inc --no-check-certificate
+	wget https://raw.githubusercontent.com/xrenoder/mhphplibs/master/partners.inc -O ~/mhphplib/partners.inc --no-check-certificate
+fi
 
 rm -rf $path/profit/partners.php
 touch $path/profit/partners.php
@@ -167,10 +167,9 @@ echo "define('SCRIPT_DIR', ROOT_DIR . '/../../../mhphplib');" | tee -a $path/pro
 echo "define('KEY_FILE', ROOT_DIR . '/../"$nodeaddr".raw.prv');" | tee -a $path/profit/partners.php
 
 echo "require_once(SCRIPT_DIR . '/config.inc');" | tee -a $path/profit/partners.php
-echo "require_once(ROOT_DIR . '/partners.inc');" | tee -a $path/profit/partners.php
+echo "require_once(SCRIPT_DIR . '/partners.inc');" | tee -a $path/profit/partners.php
 
 echo "" | tee -a $path/profit/partners.php
-
 
 $path/run.sh stop
 
