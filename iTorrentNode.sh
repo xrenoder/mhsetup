@@ -2,7 +2,8 @@
 
 srvnum=
 nodenum=
-node=it_node_$nodenum
+nodepath=it_node_$nodenum
+nodename=itnode$nodenum
 nodeaddr=
 
 mymail=xrenoder@gmail.com
@@ -12,7 +13,7 @@ nodename=XreNode_$srvnum.$nodenum
 
 user=$(whoami)
 common=~/nodes
-path=$common/$node
+path=$common/$nodepath
 
 mkdir $common
 chmod 0755 $common
@@ -46,8 +47,8 @@ echo ""
 
 mkdir $path
 chmod 0755 $path
-cp ~/torrent_node/build/src/torrent_node $path/$node
-chmod 0755 $path/$node
+cp ~/torrent_node/build/src/torrent_node $path/$nodename
+chmod 0755 $path/$nodename
 
 rm -rf ~/torrent_node
 
