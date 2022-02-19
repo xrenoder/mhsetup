@@ -174,4 +174,4 @@ echo "" | tee -a $path/profit/partners.php
 
 $path/run.sh stop
 
-echo "ps aux | grep "$node
+echo "ps aux | grep "$nodename
