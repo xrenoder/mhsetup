@@ -16,7 +16,7 @@ sudo apt-get install bzip2 -y
 sudo apt-get install zip unzip -y
 sudo apt-get install libxml2-dev -y
 sudo apt-get install curl -y
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update
 sudo apt install php7.4-curl -y
 sudo apt-get install php7.0-curl -y
