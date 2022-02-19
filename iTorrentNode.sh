@@ -75,15 +75,14 @@ chmod 0755 run.sh
 nano run.sh
 
 sudo touch /var/spool/cron/crontabs/$user
-sudo chown $user:crontab /var/spool/cron/crontabs/$user
 sudo echo "* * * * * "$path"/run.sh start" | sudo tee -a /var/spool/cron/crontabs/$user
-sudo echo "01 02 * * * "$(which php)" "$path"/profit/partners.php > /dev/null &" | sudo tee -a /var/spool/cron/crontabs/$user
-
+sudo echo "03 00 * * * "$(which php)" "$path"/profit/partners.php > /dev/null &" | sudo tee -a /var/spool/cron/crontabs/$user
 sudo echo "" | sudo tee -a /var/spool/cron/crontabs/$user
 
-crontab -e
-
 sudo chmod 0600 /var/spool/cron/crontabs/$user
+sudo chown $user:crontab /var/spool/cron/crontabs/$user
+
+crontab -e
 
 $path/run.sh restart
 
