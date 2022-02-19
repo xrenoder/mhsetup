@@ -18,11 +18,11 @@ sudo apt-get install libxml2-dev -y
 sudo apt-get install curl -y
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt install php7.4-curl
+sudo apt install php7.4-curl -y
 sudo apt-get install php7.0-curl -y
 sudo apt-get install libgmp-dev -y
 sudo apt-get install php-gmp -y
-sudo apt-get install php7.0-gmp
+sudo apt-get install php7.0-gmp -y
 sudo apt-get install libcurl4-gnutls-dev -y
 sudo apt-get install libcurl4-nss-dev -y
 
