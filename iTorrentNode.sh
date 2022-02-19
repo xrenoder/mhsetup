@@ -56,7 +56,7 @@ cd $path
 if [ ! -f $path/config.conf ]
 then
 	wget https://raw.githubusercontent.com/xrenoder/mhitorrent/master/config.conf -O config.conf --no-check-certificate
-	echo "sign_key = '"$nodeaddr"';" | tee -a $path/config.conf
+	echo "sign_key = \""$nodeaddr"\";" | tee -a $path/config.conf
 	echo "}" | tee -a $path/config.conf
 fi
 
@@ -75,7 +75,6 @@ chmod 0755 run.sh
 nano run.sh
 
 sudo touch /var/spool/cron/crontabs/$user
-sudo chmod 0600 /var/spool/cron/crontabs/$user
 sudo chown $user:crontab /var/spool/cron/crontabs/$user
 sudo echo "* * * * * "$path"/run.sh start" | sudo tee -a /var/spool/cron/crontabs/$user
 sudo echo "01 02 * * * "$(which php)" "$path"/profit/partners.php > /dev/null &" | sudo tee -a /var/spool/cron/crontabs/$user
@@ -83,6 +82,8 @@ sudo echo "01 02 * * * "$(which php)" "$path"/profit/partners.php > /dev/null &"
 sudo echo "" | sudo tee -a /var/spool/cron/crontabs/$user
 
 crontab -e
+
+sudo chmod 0600 /var/spool/cron/crontabs/$user
 
 $path/run.sh restart
 
