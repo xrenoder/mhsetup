@@ -9,7 +9,7 @@ nodeaddr=
 mymail=xrenoder@gmail.com
 bromail=max.vattern@gmail.com
 from=xrenoder@gmail.com
-nodename=XreNode_$srvnum.$nodenum
+nodedesc=XreNode_$srvnum.$nodenum
 
 user=$(whoami)
 common=~/nodes
@@ -160,7 +160,7 @@ rm -rf $path/profit/partners.php
 touch $path/profit/partners.php
 
 echo "<?" | tee -a $path/profit/partners.php
-echo "define('NODENAME', '"$nodename"');" | tee -a $path/profit/partners.php
+echo "define('NODENAME', '"$nodedesc"');" | tee -a $path/profit/partners.php
 echo "define('FROM_MAIL', '"$from"');" | tee -a $path/profit/partners.php
 
 echo "define('ROOT_DIR', __DIR__);" | tee -a $path/profit/partners.php
