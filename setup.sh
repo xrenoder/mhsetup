@@ -129,6 +129,7 @@ echo AllowUsers $user | tee -a /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config
 
 /etc/init.d/ssh restart
+netstat -tupln | grep LISTEN
 
 echo ""
 echo "*************************************************** MEMORY ***************************************************"
