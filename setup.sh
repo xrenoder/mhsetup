@@ -14,6 +14,7 @@ apt-get install mc -y
 apt-get install htop -y
 apt-get install dnsutils -y
 apt-get install host -y
+apt-get install net-tools -y
 apt-get update && apt-get dist-upgrade -y
 
 adduser $user
